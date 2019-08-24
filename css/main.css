@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.marker {
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.menu-label {
+    font-size: 20px;
+    color: rgb(113, 131, 173);
+    opacity: .90;
+}
+
+#content {
+    color: white;
+    position: absolute;
+    margin: 20px;
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#menu {
+
+    padding: auto;
+}
+
+#toggle-sidebar {
+    top: 70px;
+    position: fixed;
+    color: white;
+    font-size: 40px;
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+
+}
+
+#sidebar {
+    background-color: rgba(24, 15, 15, 0.726);
+    border: 2px solid;
+    border-radius: 10px 20px;
+    top: 120px;
+    left: 30px;
+    position: fixed;
+    width: 280px;
+    height: 80%;
+    text-align: center;
+}
+
+#input-container {
+    padding: 20px;
+
+}
+
+#input-search {
+    padding: 10px;
+    width: 80%;
+}
+
+#mapboxgl-ctrl-geocoder--input {
+    height: 50px;
+}
+
+#locations-container {
+    width: 100%;
+}
+
+#entry-list {
+    padding: 0;
+    border-top: 2px solid;
+}
+
+.entry {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    list-style-type: none;
+    width: 100%;
+    border-bottom: 1px solid;
+    margin: 10px 0 10px 0;
+    padding: 10px 0 10px 0;
+}
