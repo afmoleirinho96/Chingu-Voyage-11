@@ -1,5 +1,8 @@
+/**
+ * File with coordinates to some 
+ * of the main Portuguese cities
+ */
 var mainjson = {
-  "id": "place",
   "features": [{
       "type": "Feature",
       "properties": {},
@@ -42,7 +45,7 @@ var mainjson = {
     {
       "type": "Feature",
       "properties": {},
-      "city": "Santarén",
+      "city": "Santarém",
       "geometry": {
         "coordinates": [
           -8.683177,
@@ -102,7 +105,7 @@ var mainjson = {
         ],
         "type": "Point"
       },
-      "id": 15
+      "id": 8
     },
     {
       "type": "Feature",
@@ -115,7 +118,7 @@ var mainjson = {
         ],
         "type": "Point"
       },
-      "id": 8
+      "id": 9
     },
     {
       "type": "Feature",
@@ -128,7 +131,7 @@ var mainjson = {
         ],
         "type": "Point"
       },
-      "id": 9
+      "id": 10
     },
     {
       "type": "Feature",
@@ -141,7 +144,7 @@ var mainjson = {
         ],
         "type": "Point"
       },
-      "id": 10
+      "id": 11
     },
     {
       "type": "Feature",
@@ -154,7 +157,7 @@ var mainjson = {
         ],
         "type": "Point"
       },
-      "id": 11
+      "id": 12
     },
     {
       "type": "Feature",
@@ -167,7 +170,7 @@ var mainjson = {
         ],
         "type": "Point"
       },
-      "id": 12
+      "id": 13
     },
     {
       "type": "Feature",
@@ -180,7 +183,7 @@ var mainjson = {
         ],
         "type": "Point"
       },
-      "id": 13
+      "id": 14
     },
     {
       "type": "Feature",
@@ -193,7 +196,7 @@ var mainjson = {
         ],
         "type": "Point"
       },
-      "id": 14
+      "id": 15
     }
   ],
   "type": "FeatureCollection"

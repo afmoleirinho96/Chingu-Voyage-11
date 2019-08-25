@@ -15,20 +15,21 @@
         href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css'
         type='text/css' />
     <!-- Local files-->
-    <script src="javascript/features.js"></script>
+    <script type="text/javascript" src="javascript/features.js"></script>
     <link rel='stylesheet' href="css/main.css">
 </head>
 
 <body>
+        <script src="javascript/sw_main.js"></script>
     <div id="map"></div>
     <div id="marker1"></div>
     <div id="content">
         <div id='menu'>
-            <input id='streets-v11' type='radio' name='rtoggle' value='streets' checked>
+            <input id='streets-v11' type='radio' name='rtoggle' value='streets'>
             <label class="menu-label" for='streets'><b>streets</b></label>
             <input id='light-v10' type='radio' name='rtoggle' value='light'>
             <label class="menu-label" for='light'><b>light</b></label>
-            <input id='dark-v10' type='radio' name='rtoggle' value='dark'>
+            <input id='dark-v10' type='radio' name='rtoggle' value='dark' checked>
             <label class="menu-label" for='dark'><b>dark</b></label>
             <input id='outdoors-v11' type='radio' name='rtoggle' value='outdoors'>
             <label class="menu-label" for='outdoors'><b>outdoors</b></label>
@@ -46,30 +47,26 @@
             </div>
             <div id="locations-container">
                 <ul id="entry-list">
-
                 </ul>
             </div>
         </div>
     </div>
-
-
     <script>
         //Defines the map and it's properties
         mapboxgl.accessToken =
-            'pk.eyJ1IjoiYWZtb2xlaXJpbmhvIiwiYSI6ImNqemZsNjd6NjBkZG8zbXQ2ZHB6Zm1tbHIifQ.yyGiw-8cssUPO86hZFvZ_Q';
+            'pk.eyJ1IjoiYWZtb2xlaXJpbmhvIiwiYSI6ImNqemZsNjd6NjBkZG8zbXQ2ZHB6Zm1tbHIifQ.yyGiw-8cssUPO86hZFvZ_Q';       
         var map = new mapboxgl.Map({
             //  hash: true, //show on the url
             container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v11',
-            // zoom: 2,
+            style: 'mapbox://styles/mapbox/dark-v10?optimize=true',
             zoom: 7,
-            center: [-8.5, 39.5]
-            // center: [116.3059, 39.9869]
+            center: [-8.5, 39.5],
         });
-
-
+        //Gets and sets the number of web workers instantiated on a page with GL JS maps
+        map.workerCount =2;
+         //Gets and sets the maximum number of images 
+        map.maxParallelImageRequests = 4;
         map.on('load', function () {
-
             let locations = mainjson.features
             var markers = []
             for (let i = 0; i < locations.length; i++) {
@@ -113,8 +110,6 @@
             placeholder: 'Search for places in Portugal', // Placeholder text for the search bar
         });
         map.addControl(geocoder);
-
-
         getLocations = () => {
             fetch('https://api.mapbox.com/%7Portugal%7D?access_token' + mapboxgl.accessToken)
                 .then(res => res.json())
@@ -180,6 +175,10 @@
         for (var i = 0; i < inputs.length; i++) {
             inputs[i].onclick = switchLayer;
         }
+
+        /**
+         * Side Bar Toggle
+         */
         const sidebarToggle = document.getElementById("toggle-sidebar");
 
         function someFunction(event) {
@@ -194,6 +193,10 @@
             someFunction();
         });
 
+
+        /**
+         * Side Bar Interactivity
+         */
         document.getElementById("input-search").addEventListener('input', function (event) {
             var locations = mainjson.features;
             //List of all locations
@@ -227,7 +230,7 @@
                 locations.forEach((item) => {
                     var sideBarExists = document.getElementById(item.city);
                     if (item.city.toLowerCase().includes(self) && !sideBarExists) {
-                        console.log("adicionado" + item.city)
+                        // console.log("adicionado" + item.city)
                         let li = document.createElement('li');
                         li.className = "entry";
                         li.id = item.city;
@@ -236,7 +239,7 @@
                         item.marker.addTo(map);
 
                     } else if (!item.city.toLowerCase().includes(self) && sideBarExists) {
-                        console.log("remover" + item.city)
+                        // console.log("remover" + item.city)
                         listIds.splice(listIds.indexOf(item.id), 1);
                         document.getElementById(item.city).remove();
                         item.marker.remove();
@@ -245,6 +248,9 @@
                 });
             }
         });
+
     </script>
+    
 </body>
+
 </html>
