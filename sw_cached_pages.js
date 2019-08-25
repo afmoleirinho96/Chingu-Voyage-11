@@ -9,7 +9,6 @@ const cacheAssets = [
 //Call Install Event
 self.addEventListener('install', event => {
     // console.log('Service Worker: installed');
-
     event.waitUntil(
         caches
         .open(cacheName)
@@ -19,7 +18,6 @@ self.addEventListener('install', event => {
         })
         .then(() => self.skipWaiting())
     );
-
 });
 
 self.addEventListener('activate', event => {
