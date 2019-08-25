@@ -18,3 +18,4 @@ To get to know more about MapBox API: https://www.mapbox.com
 I completed this Project with minimum dependencies, with vanilla Javascript & HTML & CSS so feel free to fork or clone the Project and all you have to do is to run the index.html in your workspace.
 
 A proper link to the deployed solution will be attached here soon...
+https://portuguesemapbox.netlify.com/
