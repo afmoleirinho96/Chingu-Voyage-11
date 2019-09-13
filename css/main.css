@@ -16,6 +16,7 @@ body {
     height: 50px;
     border-radius: 50%;
     cursor: pointer;
+    background-color: red;
 }
 
 .menu-label {
